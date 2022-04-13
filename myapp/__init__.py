@@ -12,13 +12,15 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
+
+
 ############################
 ###### DATABASE SETUP ######
 ############################
 
 
 # set up connection to db
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://localhost:5432/test11"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://localhost:5432/petpark"
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -52,3 +54,14 @@ app.register_blueprint(error_pages)
 #linking users views Blueprint
 from myapp.users.views import users
 app.register_blueprint(users)
+
+# Add this to the bottom of __init__.py
+
+# Linking and registering blog_posts views Blueprint
+from myapp.blog_posts.views import blog_posts
+app.register_blueprint(blog_posts)
+
+# Registering Blueprints -
+
+from myapp.core.views import core 
+app.register_blueprint(core)
