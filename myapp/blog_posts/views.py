@@ -15,7 +15,7 @@ blog_posts = Blueprint('blog_posts', __name__) # register this in __Init__ py
 def create_post():
     form = BlogPostForm()
     if form.validate_on_submit():
-        blog_post = BlogPost(title=form.title.data, text=form.text.data, user_id=current_user.id)
+        blog_post = BlogPost(title=form.title.data, image=form.image.data, text=form.text.data, user_id=current_user.id)
         db.session.add(blog_post)
         db.session.commit()
         flash('BLog Post Created')

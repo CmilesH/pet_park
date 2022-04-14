@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="jumbotron">
+        <h1>Here are all the pets in the park!</h1>    
+    </div>
+    {% for pet in pets.items %}
+    <div class="row shadow p-3 mb-5 bg-body rounded">
+        <div class="col">
+            <img src="{{pet.image}}" class="img-thumbnail" alt="" onerror=this.src="https://source.unsplash.com/200x200?cute-animals">
+        </div>
+        <div class="col">
+            <h2>
+                {{pet.name}}
+            </h2>
+            Owner:<a href="{{url_for('users.user_posts', username=pet.owner.username)}}">{{pet.owner.username}}</a>
+            <p class="text-muted">
+                Breed: {{pet.breed}}
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+    <nav aria-label="Page Navigation example">
+        <ul class="pagination justify-content-center">
+            {% for page_num in pets.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                {% if pets.page == page_num %}
+                <li class="page-item disabled">
+                    <a class="page-link" href="{{url_for('core.pets', page=page_num)}}">{{ page_num }}</a>
+                </li>
+                {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="{{url_for('core.pets', page=page_num)}}">{{ page_num }}</a>
+                </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+{% endblock %}

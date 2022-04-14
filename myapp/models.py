@@ -36,22 +36,34 @@ class User(db.Model, UserMixin):
 class Pet(db.Model):
     __tablename__='pets'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64))
-    age = db.Column(db.Integer)
-    breed = db.Column(db.String(64))
+    name = db.Column(db.String(64), nullable=False)
+    breed = db.Column(db.String(64), nullable=False)
+    image = db.Column(db.String(140))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+
+
+    def __init__(self, name, breed, image, user_id):
+        self.name = name
+        self.breed = breed
+        self.image = image
+        self.user_id = user_id
+    
+    def __repr__(self):
+        return f"Pet ID: {self.id} -- Name: {self.name} --- Breed: {self.breed}"
 
 class BlogPost(db.Model):
     __tablename__ = 'blog_posts'
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     title = db.Column(db.String(140), nullable=False)
+    image = db.Column(db.String(140))
     text = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
 
-    def __init__(self, title, text, user_id):
+    def __init__(self, title, image, text, user_id):
         self.title = title
+        self.image = image
         self.text = text
         self.user_id = user_id
     
