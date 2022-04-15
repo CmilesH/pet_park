@@ -2,7 +2,7 @@
 
 *A place to share your pets with others!*
 
-![App screenshot](https://i.ibb.co/syf2gjG/Screen-Shot-2022-04-15-at-1-44-11-AM.png)
+![App screenshot](https://i.ibb.co/zxrTCVV/Screen-Shot-2022-04-15-at-1-57-19-AM.png)
 
 ![App screenshot](https://i.ibb.co/djq0xL1/Screen-Shot-2022-04-15-at-1-45-08-AM.png)
 
