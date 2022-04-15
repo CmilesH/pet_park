@@ -13,7 +13,7 @@
                         <a href="{{url_for('blog_posts.blog_post', blog_post_id=post.id)}}" style="font-size: 20px;">Edit</a>
                         {% endif %}
                     </h2>
-                    <img src="{{post.image}}" alt="">
+                    <img src="{{post.image}}" class="img-fluid" alt="">
                     <p>{{post.text}}</p>
                     by: <a href="{{url_for('users.user_posts', username=post.author.username)}}">{{post.author.username}}</a>
                     <p>{{post.date.strftime('%Y - %m - %d')}}</p>
