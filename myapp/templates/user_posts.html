@@ -3,21 +3,24 @@
     <div class="container-sm text-capitalize">
         <div class="jumbotron">
             <div align="center">
-                <h1>{{user.username}}</h1>
+                <h1 style="color: burlywood;text-shadow: 2px 2px black;">{{user.username}}</h1>
             </div>
         </div>
      {% for post in blog_posts.items %}
-    <h2>
-        <a href="{{url_for('blog_posts.blog_post', blog_post_id=post.id)}}">{{post.title}}</a>
-    </h2>
-    Written By: <a href="{{url_for('users.user_posts', username=post.author.username)}}">{{post.author.username}}</a>
-
-    <p class="text-muted">
-        Published On: {{post.date.strftime("%y-%m-%d")}}
-    </p>
-    <br>
-    <p>{{post.text}}</p>
-    <br>
+     <div class="container bottom-50 border border-white border-4 rounded bg-opacity-75" style="background-color: rgb(222, 184, 135, .75); width: 50%; margin-top: 25px;">
+        <h2>
+            {{post.title}}
+        </h2>
+        {% if post.author == current_user %}
+                        <a href="{{url_for('blog_posts.blog_post', blog_post_id=post.id)}}" style="font-size: 20px;">Edit</a>
+                        {% endif %}
+        <p >
+            Published On: {{post.date.strftime("%y-%m-%d")}}
+        </p>
+        <br>
+        <p>{{post.text}}</p>
+        <br>
+    </div>
     {% endfor %}
     </div>
 

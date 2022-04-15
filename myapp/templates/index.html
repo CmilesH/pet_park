@@ -3,16 +3,19 @@
     <div class="jumbotron">
         <h1 class="text-white">Park Posts</h1>
     </div>
-    <div class="container" >
+    <div class="container" style="align-items: center">
         {% for post in blog_posts.items %}
             <div class="card mb-1 border border-5 border-dark" style="background-color: rgb(240, 248, 255, .80); width: 50%; margin-top: 25px;">
                 <div class="car-boy m-2">
                     <h2>
                         <p>{{post.title}}</p>
+                        {% if post.author == current_user %}
+                        <a href="{{url_for('blog_posts.blog_post', blog_post_id=post.id)}}" style="font-size: 20px;">Edit</a>
+                        {% endif %}
                     </h2>
                     <img src="{{post.image}}" alt="">
                     <p>{{post.text}}</p>
-                    <a href="{{url_for('users.user_posts', username=post.author.username)}}">{{post.author.username}}</a>
+                    by: <a href="{{url_for('users.user_posts', username=post.author.username)}}">{{post.author.username}}</a>
                     <p>{{post.date.strftime('%Y - %m - %d')}}</p>
                 </div>
             </div>
