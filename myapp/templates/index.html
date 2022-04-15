@@ -3,10 +3,10 @@
     <div class="jumbotron">
         <h1 class="text-white">Park Posts</h1>
     </div>
-    <div class="container">
+    <div class="container" >
         {% for post in blog_posts.items %}
-            <div class="card mb-1">
-                <div class="car-boy">
+            <div class="card mb-1 border border-5 border-dark" style="background-color: rgb(240, 248, 255, .80); width: 50%; margin-top: 25px;">
+                <div class="car-boy m-2">
                     <h2>
                         <p>{{post.title}}</p>
                     </h2>
