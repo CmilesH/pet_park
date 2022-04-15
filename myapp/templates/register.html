@@ -4,6 +4,7 @@
 <div class="container bottom-50 border border-white border-4 rounded bg-success bg-gradient bg-opacity-75" style="width: 50%; margin-top: 25px;">
 
     <form class="form-group" method="POST">
+        {{form.hidden_tag()}}
         <div class="row mb-3"">
             <div class="col form-group mb-3">
                 {{form.email.label(class="form-control-label text-white")}}
