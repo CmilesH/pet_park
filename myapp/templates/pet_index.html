@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="jumbotron">
+    <div class="jumbotron text-white">
         <h1>Here are all the pets in the park!</h1>    
     </div>
     {% for pet in pets.items %}
-    <div class="row shadow p-3 mb-5 bg-body rounded">
-        <div class="col">
+    <div class="row shadow p-3 mb-5 bg-body rounded" style="width: 50%;"">
+        <div class="col" >
             <img src="{{pet.image}}" class="img-thumbnail" alt="" onerror=this.src="https://source.unsplash.com/200x200?cute-animals">
         </div>
         <div class="col">

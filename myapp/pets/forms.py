@@ -6,4 +6,4 @@ class AddPetForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
     breed = StringField('Breed', validators=[DataRequired()])
     image = StringField('Image Link')
-    submit = SubmitField('Post')
+    submit = SubmitField('Add')

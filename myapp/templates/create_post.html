@@ -1,24 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="container">
+    <div class="container bottom-50 border border-white border-4 rounded bg-success bg-gradient bg-opacity-75" style="width: 50%; margin-top: 25px;">
+
       <form class="form-group" method="POST">
           {{form.hidden_tag()}}
 
           <div class="form-group">
-              {{form.title.label(class="form-control-label")}}
+              {{form.title.label(class="form-control-label text-white")}}
               {{form.title(class="form-control form-control-lg")}}
           </div>
           <div class="form-group">
-            {{form.image.label(class="form-control-label")}}
+            {{form.image.label(class="form-control-label text-white")}}
             {{form.image(class="form-control form-control-lg")}}
           </div>
           <div class="form-group">
-            {{form.text.label(class="form-control-label")}}
+            {{form.text.label(class="form-control-label text-white")}}
             {{form.text(class="form-control form-control-lg")}}
         </div>
         
         <div class="form-group">
-            {{form.submit(class="btn btn-outline-info")}}
+            {{form.submit(class="btn btn-outline-light mb-2")}}
         </div>
       </form>
     </div>

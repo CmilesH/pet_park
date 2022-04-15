@@ -1,12 +1,28 @@
 {% extends "base.html" %}
 {% block content %}
-   
-<form method="POST">
-    {{form.hidden_tag()}}
-    {{form.email.label}}{{form.email}}<br>
-    {{form.username.label}}{{form.username}}<br>
-    {{form.password.label}}{{form.password}}<br>
-    {{form.pass_confirm.label}}{{form.pass_confirm}}<br>
-    {{form.submit()}}
-</form>
+
+<div class="container bottom-50 border border-white border-4 rounded bg-success bg-gradient bg-opacity-75" style="width: 50%; margin-top: 25px;">
+
+    <form class="form-group" method="POST">
+        <div class="row mb-3"">
+            <div class="col form-group mb-3">
+                {{form.email.label(class="form-control-label text-white")}}
+                {{form.email(class="form-control")}}
+            </div>
+            <div class="col form-group mb-3">
+                {{form.username.label(class="form-control-label text-white")}}
+                {{form.username(class="form-control")}}
+            </div>          
+            <div class="mb-3 form-group">
+                {{form.password.label(class="form-control-label text-white")}}
+                {{form.password(class="form-control")}}
+            </div>
+            <div class="mb-3 form-group">
+                {{form.pass_confirm.label(class="form-control-label text-white")}}
+                {{form.pass_confirm(class="form-control")}}
+            </div>
+        </div>
+            {{form.submit(class="btn btn-outline-light mb-2")}}
+        </form>
+</div>
 {% endblock %}
